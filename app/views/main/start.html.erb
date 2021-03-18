@@ -1,0 +1,42 @@
+<div class="d-flex align-items-center justify-content-center">
+  <h1> Welcome to the game of 21! <h1>
+</div>
+
+<% @player = MainController::PLAYER %>
+<% @deck = MainController::DECK %>
+<% @dealer = MainController::DEALER %>
+
+  <% @player.cards = @deck.deal_two %>
+  <% @dealer.cards = @deck.deal_two %>
+
+<div class="d-flex align-items-center justify-content-center">
+  <h1> ---- Player's Hand ---- <h1>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <% @player.cards.each do |card| %>
+        => <%= card %>
+        <br/>
+    <% end %>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+  <h1> ---- Dealer's Hand ---- <h1>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+  => <%= @dealer.cards[0] %>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+  <h6> => Unknown card <h6> 
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+<h1> Hit or Stay? <h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+  <%=button_to "Hit", hit_path, method: :get %>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+  <%=button_to "Stay", stay_path, method: :get %>
+</div>

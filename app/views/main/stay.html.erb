@@ -1,0 +1,32 @@
+
+<% @player = MainController::PLAYER %>
+<% @deck = MainController::DECK %>
+<% @dealer = MainController::DEALER %>
+
+<% loop do %>
+  <h1> Dealer Turn <h1> 
+  <h1> The Dealer hits. <h1> 
+  <% @dealer.hit(@deck.deal_one) %>
+  <h1> ---- Dealer's Hand ---- <h1>
+    <% @dealer.cards.each do |card| %>
+      => <%= card %>
+      <br/>
+  <% end %>
+  The Dealer total is: <%= @dealer.total %>
+
+  <% break if @dealer.total >= 17 %>
+<% end %>
+
+<% if @dealer.busted? %>
+  <script type="text/javascript">
+    window.location.href="win"
+  </script> 
+<% elsif @dealer.total > @player.total %>
+  <script type="text/javascript">
+    window.location.href="loss"
+  </script> 
+<% elsif @dealer.total < @player.total %>
+  <script type="text/javascript">
+    window.location.href="win"
+  </script>
+<% end %>

@@ -1,0 +1,42 @@
+
+<% @player = MainController::PLAYER %>
+<% @deck = MainController::DECK %>
+<% @dealer = MainController::DEALER %>
+
+
+ <h1> The Player hits. <h1> 
+  <% @player.hit(@deck.deal_one) %>
+  <h1> ---- Player's Hand ---- <h1>
+  <% @player.cards.each do |card| %>
+    => <%= card %>
+    <br/>
+  <% end %>
+  The Player total is: <%= @player.total %>
+
+  <% if @player.won? %>
+    <script type="text/javascript">
+      window.location.href="win"
+    </script> 
+  <% elsif @player.busted? %>
+    <script type="text/javascript">
+      window.location.href="loss"
+    </script> 
+  <% else %>
+    <div class="d-flex align-items-center justify-content-center">
+      <h1> Hit or Stay? <h1>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center">
+      <%=button_to "Hit", hit_path, method: :get %>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center">
+      <%=button_to "Stay", stay_path, method: :get %>
+    </div>
+  <% end %>
+
+  
+
+
+
+
