@@ -6,7 +6,7 @@ class Participant
   end
 
   def show_hand
-    puts "---- #{self.class} Hand ----"
+    "---- #{self.class} Hand ----"
     cards.each do |card|
       puts "=> #{card}"
     end
