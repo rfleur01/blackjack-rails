@@ -24,14 +24,6 @@ class Participant
     total == 21
   end
 
-  def ace_correction
-    cards.select { |card| card.face == 'Ace' }.count.times do
-      break if total <= 21
-
-      total - 10
-    end
-  end
-
   def total
     total = 0
     cards.each do |card|
@@ -43,7 +35,13 @@ class Participant
         total += card.face.to_i
       end
     end
-    ace_correction
+
+    # ace_correction
+    cards.select { |card| card.face == 'Ace' }.count.times do
+      break if total <= 21
+
+      total - 10
+    end
     total
   end
 end
