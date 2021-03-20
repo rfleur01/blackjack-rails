@@ -4,15 +4,30 @@
 <% @dealer = MainController::DEALER %>
 
 <% loop do %>
+<div class="d-flex align-items-center justify-content-center">
   <h1> Dealer Turn <h1> 
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
   <h1> The Dealer hits. <h1> 
+</div>
+
   <% @dealer.hit(@deck.deal_one) %>
+
+<div class="d-flex align-items-center justify-content-center">
   <h1> ---- Dealer's Hand ---- <h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
     <% @dealer.cards.each do |card| %>
       => <%= card %>
       <br/>
   <% end %>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
   The Dealer total is: <%= @dealer.total %>
+</div>
 
   <% break if @dealer.total >= 17 %>
 <% end %>

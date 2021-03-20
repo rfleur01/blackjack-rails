@@ -8,29 +8,17 @@ class MainController < ApplicationController
   end
 
   def start
-    PLAYER
-    DECK 
-    DEALER
   end
 
   def hit
-    PLAYER
-    DECK 
-    DEALER
   end
 
   def stay
   end
 
   def win
-    PLAYER
-    DECK 
-    DEALER
   end
 
   def loss
-    PLAYER
-    DECK 
-    DEALER
   end
 end

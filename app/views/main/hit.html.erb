@@ -3,15 +3,27 @@
 <% @deck = MainController::DECK %>
 <% @dealer = MainController::DEALER %>
 
-
+<div class="d-flex align-items-center justify-content-center">
  <h1> The Player hits. <h1> 
+</div>
+
+
   <% @player.hit(@deck.deal_one) %>
+
+<div class="d-flex align-items-center justify-content-center">
   <h1> ---- Player's Hand ---- <h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
   <% @player.cards.each do |card| %>
     => <%= card %>
     <br/>
   <% end %>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
   The Player total is: <%= @player.total %>
+</div>
 
   <% if @player.won? %>
     <script type="text/javascript">

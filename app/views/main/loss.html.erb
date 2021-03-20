@@ -2,22 +2,43 @@
 <% @deck = MainController::DECK %>
 <% @dealer = MainController::DEALER %>
 
-<h1> Sorry! You Lost! <h1>
-<h1> ---- Player's Hand ---- <h1>
-  <% @player.cards.each do |card| %>
+<div class="d-flex align-items-center justify-content-center">
+  <h1> Sorry! You Lost! <h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+  <h1> ---- Player's Hand ---- <h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+    <% @player.cards.each do |card| %>
+      => <%= card %>
+      <br/>
+    <% end %>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+  The Player total is: <%= @player.total %>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+  <h1> ---- Dealer's Hand ---- <h1>
+</div>
+
+<div class="d-flex align-items-center justify-content-center">
+  <% @dealer.cards.each do |card| %>
     => <%= card %>
     <br/>
   <% end %>
-  The Player total is: <%= @player.total %>
+</div>
 
-<h1> ---- Dealer's Hand ---- <h1>
-    <% @dealer.cards.each do |card| %>
-      => <%= card %>
-      <br/>
-  <% end %>
+<div class="d-flex align-items-center justify-content-center">
   The Dealer total is: <%= @dealer.total %>
+</div>
 
-    <h1> Play Again? <h1>
+<div class="d-flex align-items-center justify-content-center">
+  <h1> Play Again? <h1>
+</div>
 
 <div class="d-flex align-items-center justify-content-center">
   <%=button_to "Yes", root_path, method: :get %>
