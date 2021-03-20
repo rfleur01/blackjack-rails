@@ -5,13 +5,6 @@ class Participant
     @cards = []
   end
 
-  def show_hand
-    "---- #{self.class} Hand ----"
-    cards.each do |card|
-      puts "=> #{card}"
-    end
-  end
-
   def hit(deal)
     cards << deal
   end
@@ -36,7 +29,7 @@ class Participant
       end
     end
 
-    # ace_correction
+    # ace correction
     cards.select { |card| card.face == 'Ace' }.count.times do
       break if total <= 21
 
